@@ -23,7 +23,7 @@ namespace Maxine.WebGPU
         (
             ChainedStruct* nextInChain = null,
             uint? binding = null,
-            ulong? visibility = null,
+            Maxine.WebGPU.ShaderStage? visibility = null,
             uint? bindingArraySize = null,
             BufferBindingLayout? buffer = null,
             SamplerBindingLayout? sampler = null,
@@ -86,7 +86,7 @@ namespace Maxine.WebGPU
         [NativeName("Type", "WGPUShaderStage")]
         [NativeName("Type.Name", "WGPUShaderStage")]
         [NativeName("Name", "visibility")]
-        public ulong Visibility;
+        public Maxine.WebGPU.ShaderStage Visibility;
 
         [NativeName("Type", "uint32_t")]
         [NativeName("Type.Name", "uint32_t")]

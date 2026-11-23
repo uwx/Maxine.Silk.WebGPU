@@ -23,7 +23,7 @@ namespace Maxine.WebGPU
         (
             ChainedStruct* nextInChain = null,
             StringView? label = null,
-            ulong? usage = null,
+            Maxine.WebGPU.BufferUsage? usage = null,
             ulong? size = null,
             Silk.NET.Core.Bool32? mappedAtCreation = null
         ) : this()
@@ -68,7 +68,7 @@ namespace Maxine.WebGPU
         [NativeName("Type", "WGPUBufferUsage")]
         [NativeName("Type.Name", "WGPUBufferUsage")]
         [NativeName("Name", "usage")]
-        public ulong Usage;
+        public Maxine.WebGPU.BufferUsage Usage;
 
         [NativeName("Type", "uint64_t")]
         [NativeName("Type.Name", "uint64_t")]

@@ -22,7 +22,7 @@ namespace Maxine.WebGPU.Extensions.WGPU
         public ShaderSourceGLSL
         (
             ChainedStruct? chain = null,
-            ulong? stage = null,
+            Maxine.WebGPU.ShaderStage? stage = null,
             StringView? code = null,
             uint? defineCount = null,
             ShaderDefine* defines = null
@@ -63,7 +63,7 @@ namespace Maxine.WebGPU.Extensions.WGPU
         [NativeName("Type", "WGPUShaderStage")]
         [NativeName("Type.Name", "WGPUShaderStage")]
         [NativeName("Name", "stage")]
-        public ulong Stage;
+        public Maxine.WebGPU.ShaderStage Stage;
 
         [NativeName("Type", "WGPUStringView")]
         [NativeName("Type.Name", "WGPUStringView")]

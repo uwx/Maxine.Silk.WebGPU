@@ -103,13 +103,13 @@
       },
       "typeMaps": [
         {
-          "WGPUColorWriteMaskFlags": "Maxine.WebGPU.ColorWriteMask",
-          "WGPUBufferUsageFlags": "Maxine.WebGPU.BufferUsage",
-          "WGPUMapModeFlags": "Maxine.WebGPU.MapMode",
-          "WGPUShaderStageFlags": "Maxine.WebGPU.ShaderStage",
-          "WGPUTextureUsageFlags": "Maxine.WebGPU.TextureUsage",
+          "WGPUColorWriteMask": "Maxine.WebGPU.ColorWriteMask",
+          "WGPUBufferUsage": "Maxine.WebGPU.BufferUsage",
+          "WGPUMapMode": "Maxine.WebGPU.MapMode",
+          "WGPUShaderStage": "Maxine.WebGPU.ShaderStage",
+          "WGPUTextureUsage": "Maxine.WebGPU.TextureUsage",
           "WGPUBool": "Silk.NET.Core.Bool32",
-          "WGPUInstanceBackendFlags": "Maxine.WebGPU.Extensions.WGPU.InstanceBackend"
+          "WGPUInstanceBackend": "Maxine.WebGPU.Extensions.WGPU.InstanceBackend"
         },
         {
           "$include.commonTypeMap": "build/csharp_typemap.json",

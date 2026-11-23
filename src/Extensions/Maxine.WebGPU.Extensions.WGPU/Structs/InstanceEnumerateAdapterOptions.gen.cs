@@ -22,7 +22,7 @@ namespace Maxine.WebGPU.Extensions.WGPU
         public InstanceEnumerateAdapterOptions
         (
             ChainedStruct* nextInChain = null,
-            ulong? backends = null
+            Maxine.WebGPU.Extensions.WGPU.InstanceBackend? backends = null
         ) : this()
         {
             if (nextInChain is not null)
@@ -45,6 +45,6 @@ namespace Maxine.WebGPU.Extensions.WGPU
         [NativeName("Type", "WGPUInstanceBackend")]
         [NativeName("Type.Name", "WGPUInstanceBackend")]
         [NativeName("Name", "backends")]
-        public ulong Backends;
+        public Maxine.WebGPU.Extensions.WGPU.InstanceBackend Backends;
     }
 }

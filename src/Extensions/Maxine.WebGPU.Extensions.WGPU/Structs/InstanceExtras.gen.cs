@@ -22,7 +22,7 @@ namespace Maxine.WebGPU.Extensions.WGPU
         public InstanceExtras
         (
             ChainedStruct? chain = null,
-            ulong? backends = null,
+            Maxine.WebGPU.Extensions.WGPU.InstanceBackend? backends = null,
             ulong? flags = null,
             Dx12Compiler? dx12ShaderCompiler = null,
             Gles3MinorVersion? gles3MinorVersion = null,
@@ -105,7 +105,7 @@ namespace Maxine.WebGPU.Extensions.WGPU
         [NativeName("Type", "WGPUInstanceBackend")]
         [NativeName("Type.Name", "WGPUInstanceBackend")]
         [NativeName("Name", "backends")]
-        public ulong Backends;
+        public Maxine.WebGPU.Extensions.WGPU.InstanceBackend Backends;
 
         [NativeName("Type", "WGPUInstanceFlag")]
         [NativeName("Type.Name", "WGPUInstanceFlag")]

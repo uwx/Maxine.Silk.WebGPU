@@ -24,7 +24,7 @@ namespace Maxine.WebGPU
             ChainedStruct* nextInChain = null,
             TextureFormat? format = null,
             BlendState* blend = null,
-            ulong? writeMask = null
+            Maxine.WebGPU.ColorWriteMask? writeMask = null
         ) : this()
         {
             if (nextInChain is not null)
@@ -67,6 +67,6 @@ namespace Maxine.WebGPU
         [NativeName("Type", "WGPUColorWriteMask")]
         [NativeName("Type.Name", "WGPUColorWriteMask")]
         [NativeName("Name", "writeMask")]
-        public ulong WriteMask;
+        public Maxine.WebGPU.ColorWriteMask WriteMask;
     }
 }

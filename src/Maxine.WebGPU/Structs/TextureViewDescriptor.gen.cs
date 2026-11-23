@@ -30,7 +30,7 @@ namespace Maxine.WebGPU
             uint? baseArrayLayer = null,
             uint? arrayLayerCount = null,
             TextureAspect? aspect = null,
-            ulong? usage = null
+            Maxine.WebGPU.TextureUsage? usage = null
         ) : this()
         {
             if (nextInChain is not null)
@@ -133,6 +133,6 @@ namespace Maxine.WebGPU
         [NativeName("Type", "WGPUTextureUsage")]
         [NativeName("Type.Name", "WGPUTextureUsage")]
         [NativeName("Name", "usage")]
-        public ulong Usage;
+        public Maxine.WebGPU.TextureUsage Usage;
     }
 }

@@ -22,7 +22,7 @@ namespace Maxine.WebGPU
         public SurfaceCapabilities
         (
             ChainedStruct* nextInChain = null,
-            ulong? usages = null,
+            Maxine.WebGPU.TextureUsage? usages = null,
             nuint? formatCount = null,
             TextureFormat* formats = null,
             nuint? presentModeCount = null,
@@ -81,7 +81,7 @@ namespace Maxine.WebGPU
         [NativeName("Type", "WGPUTextureUsage")]
         [NativeName("Type.Name", "WGPUTextureUsage")]
         [NativeName("Name", "usages")]
-        public ulong Usages;
+        public Maxine.WebGPU.TextureUsage Usages;
 
         [NativeName("Type", "size_t")]
         [NativeName("Type.Name", "size_t")]

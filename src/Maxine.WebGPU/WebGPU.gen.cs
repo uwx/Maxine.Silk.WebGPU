@@ -304,12 +304,12 @@ namespace Maxine.WebGPU
         /// <summary>To be documented.</summary>
         [NativeName("Src", "Line 6107, Column 29 in webgpu.h")]
         [NativeApi(EntryPoint = "wgpuBufferGetUsage")]
-        public unsafe partial ulong BufferGetUsage(Buffer* buffer);
+        public unsafe partial Maxine.WebGPU.BufferUsage BufferGetUsage(Buffer* buffer);
 
         /// <summary>To be documented.</summary>
         [NativeName("Src", "Line 6119, Column 24 in webgpu.h")]
         [NativeApi(EntryPoint = "wgpuBufferMapAsync")]
-        public unsafe partial Future BufferMapAsync(Buffer* buffer, ulong mode, nuint offset, nuint size, BufferMapCallbackInfo callbackInfo);
+        public unsafe partial Future BufferMapAsync(Buffer* buffer, Maxine.WebGPU.MapMode mode, nuint offset, nuint size, BufferMapCallbackInfo callbackInfo);
 
         /// <summary>To be documented.</summary>
         [NativeName("Src", "Line 6140, Column 24 in webgpu.h")]
@@ -1539,7 +1539,7 @@ namespace Maxine.WebGPU
         /// <summary>To be documented.</summary>
         [NativeName("Src", "Line 6738, Column 30 in webgpu.h")]
         [NativeApi(EntryPoint = "wgpuTextureGetUsage")]
-        public unsafe partial ulong TextureGetUsage(Texture* texture);
+        public unsafe partial Maxine.WebGPU.TextureUsage TextureGetUsage(Texture* texture);
 
         /// <summary>To be documented.</summary>
         [NativeName("Src", "Line 6739, Column 22 in webgpu.h")]
