@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".", ".", "{F56A9F2F-D753-4BEB-957A-3978E0C2734D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxine.WebGPU", "src\Maxine.WebGPU\Maxine.WebGPU.csproj", "{DF574667-3936-435B-B6AF-7307DF75D387}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxine.WebGPU.Extensions.WGPU", "src\Extensions\Maxine.WebGPU.Extensions.WGPU\Maxine.WebGPU.Extensions.WGPU.csproj", "{D7F9A640-BBB7-4E5D-BEDB-7BCEF2D58827}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxine.WebGPU.Extensions.Dawn", "src\Extensions\Maxine.WebGPU.Extensions.Dawn\Maxine.WebGPU.Extensions.Dawn.csproj", "{61A4C8A2-C35F-498C-9530-13A782B4EE28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxine.Silk.WebGPU.Native.WGPU", "native\Maxine.Silk.WebGPU.Native.WGPU\Maxine.Silk.WebGPU.Native.WGPU.csproj", "{446857AB-9AC4-41FC-B06A-AF56A7048EAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF574667-3936-435B-B6AF-7307DF75D387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF574667-3936-435B-B6AF-7307DF75D387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF574667-3936-435B-B6AF-7307DF75D387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF574667-3936-435B-B6AF-7307DF75D387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F9A640-BBB7-4E5D-BEDB-7BCEF2D58827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F9A640-BBB7-4E5D-BEDB-7BCEF2D58827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F9A640-BBB7-4E5D-BEDB-7BCEF2D58827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F9A640-BBB7-4E5D-BEDB-7BCEF2D58827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A4C8A2-C35F-498C-9530-13A782B4EE28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A4C8A2-C35F-498C-9530-13A782B4EE28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A4C8A2-C35F-498C-9530-13A782B4EE28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A4C8A2-C35F-498C-9530-13A782B4EE28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{446857AB-9AC4-41FC-B06A-AF56A7048EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{446857AB-9AC4-41FC-B06A-AF56A7048EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{446857AB-9AC4-41FC-B06A-AF56A7048EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{446857AB-9AC4-41FC-B06A-AF56A7048EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF574667-3936-435B-B6AF-7307DF75D387} = {F56A9F2F-D753-4BEB-957A-3978E0C2734D}
+		{D7F9A640-BBB7-4E5D-BEDB-7BCEF2D58827} = {F56A9F2F-D753-4BEB-957A-3978E0C2734D}
+		{61A4C8A2-C35F-498C-9530-13A782B4EE28} = {F56A9F2F-D753-4BEB-957A-3978E0C2734D}
+		{446857AB-9AC4-41FC-B06A-AF56A7048EAD} = {F56A9F2F-D753-4BEB-957A-3978E0C2734D}
+	EndGlobalSection
+EndGlobal

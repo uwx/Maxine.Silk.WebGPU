@@ -1,0 +1,83 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: 8.0.x
+
+            - name: Restore
+              run: dotnet restore Maxine.Silk.WebGPU.sln
+
+            - name: Build
+              run: dotnet build Maxine.Silk.WebGPU.sln --no-restore -c Release
+
+    # Regenerating must not change anything. If it does, the committed bindings are stale relative
+    # to generator.json and the headers, and the two have drifted apart.
+    generation:
+        name: Generation is up to date
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: 8.0.x
+
+            - name: Regenerate bindings
+              run: dotnet run --project tools/SilkGenerate -- generator.json
+
+            - name: Fail if regeneration changed anything
+              run: |
+                  # Ignores build/cache, the generator's parsed copy of the headers. The archive's
+                  # bytes are not stable across platforms, so it shows up as a change on Linux while
+                  # the generated sources are identical -- which is what this gate is actually
+                  # about. The cache is input, the sources are output; the sources are still
+                  # checked.
+                  #
+                  # --porcelain rather than `git diff`: the generator can also *add* a file, and an
+                  # untracked file is invisible to git diff.
+                  if [ -n "$(git status --porcelain -- ':!build/cache')" ]; then
+                      echo "::error::Running the generator produced changes. Commit the regenerated sources."
+                      git status --porcelain -- ':!build/cache'
+                      git --no-pager diff --stat -- . ':!build/cache'
+                      exit 1
+                  fi
+
+    pack:
+        name: Pack
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: 8.0.x
+
+            - name: Pack
+              run: dotnet pack Maxine.Silk.WebGPU.sln -c Release -o artifacts
+
+            - name: List packages
+              run: ls -la artifacts
+
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: packages
+                  path: artifacts/*.nupkg
+                  if-no-files-found: error

@@ -1,0 +1,40 @@
+// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+
+using System;
+using Silk.NET.Core.Attributes;
+
+#pragma warning disable 1591
+
+namespace Maxine.WebGPU.Extensions.WGPU
+{
+    [NativeName("Name", "WGPUNativeSType")]
+    public enum NativeSType : int
+    {
+        [NativeName("Name", "WGPUSType_DeviceExtras")]
+        STypeDeviceExtras = 0x30001,
+        [NativeName("Name", "WGPUSType_NativeLimits")]
+        STypeNativeLimits = 0x30002,
+        [NativeName("Name", "WGPUSType_ShaderSourceGLSL")]
+        STypeShaderSourceGlsl = 0x30003,
+        [NativeName("Name", "WGPUSType_InstanceExtras")]
+        STypeInstanceExtras = 0x30004,
+        [NativeName("Name", "WGPUSType_BindGroupEntryExtras")]
+        STypeBindGroupEntryExtras = 0x30005,
+        [NativeName("Name", "WGPUSType_BindGroupLayoutEntryExtras")]
+        STypeBindGroupLayoutEntryExtras = 0x30006,
+        [NativeName("Name", "WGPUSType_QuerySetDescriptorExtras")]
+        STypeQuerySetDescriptorExtras = 0x30007,
+        [NativeName("Name", "WGPUSType_SurfaceConfigurationExtras")]
+        STypeSurfaceConfigurationExtras = 0x30008,
+        [NativeName("Name", "WGPUSType_SurfaceSourceSwapChainPanel")]
+        STypeSurfaceSourceSwapChainPanel = 0x30009,
+        [NativeName("Name", "WGPUSType_PrimitiveStateExtras")]
+        STypePrimitiveStateExtras = 0x3000A,
+        [NativeName("Name", "WGPUSType_SamplerDescriptorExtras")]
+        STypeSamplerDescriptorExtras = 0x3000B,
+        [NativeName("Name", "WGPUNativeSType_Force32")]
+        NativeSTypeForce32 = 0x7FFFFFFF,
+    }
+}

@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
+    <AssemblyName>silkgenerate</AssemblyName>
+    <RootNamespace>SilkGenerate</RootNamespace>
+    <Description>Runs the Silk.NET.BuildTools binding generator over generator.json.</Description>
+  </PropertyGroup>
+
+  <!--
+    Clang mode parses the headers through libclang, and libClangSharp.dll wraps it for
+    ClangSharp.Interop. The runtime packages are what put both in the output: their native assets are
+    resolved from runtimes/<rid>/native through the generated deps.json, which a project that merely
+    references Silk.NET.BuildTools does not get. Without them the generator emits no bindings at all
+    and prints nothing about why.
+
+    The RID is taken from the build machine (a regeneration always is for the machine running it)
+    and can be overridden. Only RIDs that have a 15.0.0 pair are listed: ClangSharp.Interop 15.0.2
+    is what Silk.NET.BuildTools 2.23.0 binds against, and linux-arm64 never shipped libClangSharp
+    15.0.0 (its oldest is 16.0.6, an ABI the interop is not built for), so regeneration there is
+    unsupported rather than quietly mismatched.
+  -->
+  <PropertyGroup>
+    <SilkClangRid Condition="'$(SilkClangRid)' == ''">$(NETCoreSdkRuntimeIdentifier)</SilkClangRid>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Silk.NET.BuildTools" Version="2.23.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SilkClangRid)' == 'win-x64' Or '$(SilkClangRid)' == 'win-x86' Or '$(SilkClangRid)' == 'osx-x64' Or '$(SilkClangRid)' == 'osx-arm64' Or '$(SilkClangRid)' == 'linux-x64'">
+    <PackageReference Include="libclang.runtime.$(SilkClangRid)" Version="15.0.0" />
+    <PackageReference Include="libclangsharp.runtime.$(SilkClangRid)" Version="15.0.0" />
+  </ItemGroup>
+
+</Project>

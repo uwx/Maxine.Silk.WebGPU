@@ -1,0 +1,121 @@
+{
+  "tasks": [
+    {
+      "profileName": "webgpu",
+      "sources": [
+        "build/headers/webgpu.h",
+        "build/headers/wgpu.h",
+        "build/headers/dawn-webgpu.h"
+      ],
+      "mode": "Clang",
+      "cacheDir": "build/cache",
+      "cacheKey": "webgpu",
+      "controlDescriptors": [
+        "convert-windows-only",
+        "no-pre-2.17-obsolete-enums",
+        "typemap-native"
+      ],
+      "converter": {},
+      "prefix": "wgpu",
+      "clang": {
+        "args": [
+          "--language=c++",
+          "--std=c++17",
+          "-m64",
+          "-Wno-expansion-to-defined",
+          "-Wno-ignored-attributes",
+          "-Wno-ignored-pragma-intrinsic",
+          "-Wno-nonportable-include-path",
+          "-Wno-pragma-pack",
+          "-Ibuild/headers"
+        ],
+        "traverse": [
+          "build/headers/*.h"
+        ],
+        "classes": {
+          "webgpu.h": "[Core]WebGPU",
+          "wgpu.h": "[WGPU:WebGPU]Wgpu",
+          "dawn-webgpu.h": "[Dawn:WebGPU]Dawn"
+        }
+      },
+      "exclude": [],
+      "rename": {
+        "WGPUInstanceRequestAdapterCallback": "RequestAdapterCallback",
+        "WGPUAdapterRequestDeviceCallback": "RequestDeviceCallback",
+        "WGPURequestAdapterCallback": "RequestAdapterCallback",
+        "WGPURequestDeviceCallback": "RequestDeviceCallback",
+        "WGPUBufferMapAsyncCallback": "BufferMapCallback",
+        "WGPUBufferMapCallback": "BufferMapCallback",
+        "WGPUCompilationInfoCallback": "CompilationInfoCallback",
+        "WGPUShaderModuleGetCompilationInfoCallback": "CompilationInfoCallback",
+        "WGPUQueueWorkDoneCallback": "QueueWorkDoneCallback",
+        "WGPUQueueOnSubmittedWorkDoneCallback": "QueueWorkDoneCallback",
+        "WGPUDeviceCreateRenderPipelineAsyncCallback": "CreateRenderPipelineAsyncCallback",
+        "WGPUCreateRenderPipelineAsyncCallback": "CreateRenderPipelineAsyncCallback",
+        "WGPUDeviceCreateComputePipelineAsyncCallback": "CreateComputePipelineAsyncCallback",
+        "WGPUCreateComputePipelineAsyncCallback": "CreateComputePipelineAsyncCallback",
+        "WGPUComputePipelineImpl": "ComputePipeline",
+        "WGPUAdapterImpl": "Adapter",
+        "WGPUBindGroupImpl": "BindGroup",
+        "WGPUBindGroupLayoutImpl": "BindGroupLayout",
+        "WGPUBufferImpl": "Buffer",
+        "WGPUCommandBufferImpl": "CommandBuffer",
+        "WGPUCommandEncoderImpl": "CommandEncoder",
+        "WGPUComputePassEncoderImpl": "ComputePassEncoder",
+        "WGPUDeviceImpl": "Device",
+        "WGPUInstanceImpl": "Instance",
+        "WGPUPipelineLayoutImpl": "PipelineLayout",
+        "WGPUQuerySetImpl": "QuerySet",
+        "WGPUQueueImpl": "Queue",
+        "WGPURenderBundleEncoderImpl": "RenderBundleEncoder",
+        "WGPURenderBundleImpl": "RenderBundle",
+        "WGPURenderPassEncoderImpl": "RenderPassEncoder",
+        "WGPURenderPipelineImpl": "RenderPipeline",
+        "WGPUSamplerImpl": "Sampler",
+        "WGPUShaderModuleImpl": "ShaderModule",
+        "WGPUSurfaceImpl": "Surface",
+        "WGPUSwapChainImpl": "SwapChain",
+        "WGPUTextureImpl": "Texture",
+        "WGPUTextureViewImpl": "TextureView"
+      },
+      "bakery": {
+        "profileNames": [
+          "webgpu",
+          "wgpu",
+          "dawn-webgpu"
+        ]
+      },
+      "output": {
+        "mode": "Default",
+        "path": "src",
+        "licenseFile": "build/LICENSE_HEADER.txt",
+        "props": "msbuild.props"
+      },
+      "namespace": "Maxine.WebGPU",
+      "extensionsNamespace": "Maxine.WebGPU.Extensions",
+      "nameContainer": {
+        "linux-x64": "libwgpu_native.so",
+        "win-x64": "wgpu_native.dll",
+        "win-x86": "wgpu_native.dll",
+        "osx-x64": "libwgpu_native.dylib",
+        "android": "libwgpu_native.so",
+        "className": "WebGPULibraryNameContainer"
+      },
+      "typeMaps": [
+        {
+          "WGPUColorWriteMaskFlags": "Maxine.WebGPU.ColorWriteMask",
+          "WGPUBufferUsageFlags": "Maxine.WebGPU.BufferUsage",
+          "WGPUMapModeFlags": "Maxine.WebGPU.MapMode",
+          "WGPUShaderStageFlags": "Maxine.WebGPU.ShaderStage",
+          "WGPUTextureUsageFlags": "Maxine.WebGPU.TextureUsage",
+          "WGPUBool": "Silk.NET.Core.Bool32",
+          "WGPUInstanceBackendFlags": "Maxine.WebGPU.Extensions.WGPU.InstanceBackend"
+        },
+        {
+          "$include.commonTypeMap": "build/csharp_typemap.json",
+          "$include.dxTypeMap": "build/dx_typemap.json"
+        }
+      ]
+    }
+  ]
+}
